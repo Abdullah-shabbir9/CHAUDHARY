@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <STyle>
+        *{
+            padding: 0rem;
+            margin: 0rem;
+        }
+        .action{
+    position: fixed;
+    top: .625rem;
+ left: 18.75rem;
+}
+.action .profile{
+    position: relative;
+    width: 3.125rem;
+    height: 3.125rem;
+   
+    overflow: hidden;
+    cursor: pointer;
+}
+.action .profile img{
+    position: absolute;
+    top: -10;
+    left: 20;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.action .menu{
+    position: absolute;
+    top: 7.5rem;
+    right: -0;
+    padding:  .625rem 1.25rem;
+    background: #ededed;
+    width: 9.375rem;
+    box-sizing: 0 .3125rem 1.5625rem rgba(0,0,0,1);
+    border-radius: .9375rem;
+    transition: 0.5s;  
+    visibility: hidden;
+    opacity: 0;
+}
+.action .menu.active{
+    visibility: visible;
+    opacity: 1;
+    top: 5rem;
+}
+.action .menu::before{
+    content: "";
+    position: absolute;
+    top: -0.3125rem;
+    right: 1.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    background: #ededed;
+    transform: rotate(45deg);
+}
+.action .menu ul li{
+    list-style: none;
+    padding: .625rem 0;
+    border-top: .0625rem solid black ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.action .menu  li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.5s;
+}
+.action .menu ul li:hover a{
+    color: #00abf0;
+}
+        .header{
+           margin-left: .625rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95%;
+    padding:  -4%;
+    background-color:transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    padding-top: .625rem ;
+}
+::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay:.4s ;
+}
+.logo{
+    font-size: 1.125rem;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+.navbar a{
+  
+    font-size: 1.125rem;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 1.875rem;
+transition: .3s;
+}
+.navbar a:hover,
+.navbar a.active {
+    color: #00abf0;
+}
+@keyframes showRight {
+    100%{
+        width: 0;
+    }
+}
+@keyframes manipactivehover{
+    100%{
+        pointer-events: auto;
+    }
+}
+        body{
+            background:  #081b29;  
+    
+  
+        height: 100vh;
+        
+        }
+      
+       .main{
+        margin: auto;
+         border: solid white;
+display: flex;
+width: 18.75rem;
+margin-top: 5rem;
+       }
+       h5{
+        color: #ededed;
+padding: .375rem .625rem ;
+display: flex;
+align-items: center;
+       }
+     
+      i{
+        margin: .3125rem .625rem;
+        align-items: center;
+        color: #00abf0;
+        display: flex;
+      flex-direction: row;
+      }
+       h1{
+ margin-top: 1.25rem;
+    padding-left: .3125rem;
+    width: 9.375rem;
+    height: 3.125rem;
+    background-color: rgb(47, 28, 104);
+    color:#00abf0;
+    position: relative;
+animation-name: example;
+animation-duration: 5s;
+animation-delay: 0.1s;
+animation-iteration-count: 1;
+animation-fill-mode: forwards;
+margin-top: 5.625rem;
+margin-left: 3.125rem;
+}
+@keyframes example {
+    0%   {background-color:  #081b29; left:6.25rem; top:0rem;}
+    25%  {background-color:  #081b29; left:56.25rem; top:0rem;}
+    50%  {background-color:  #081b29; left:6.25rem; top:0rem;}
+    75%  {background-color:  #081b29; left:.625rem; top:0rem;}
+    100% {background-color:  #081b29; left:.625rem; top:0rem;}
+}
+@media (min-width:37.5rem){
+    .action{
+        display: none;
+    }
+}
+@media (max-width:37.5rem){
+    .navbar{
+        display: none;
+    }
+}
+    </STyle>
+</head>
+<body>
+    <header class="header">
+        <a href="#"class="logo">Job CV</a>
+        <div class="action">
+            <div class="profile" onclick="menuToggle();">
+                <img src="abdulla.jpg" style="width: 3.125rem; border-radius: 1.875rem;">
+            </div>
+            <div class="menu">
+                <h3 style=" width: 100%; color: #081b29; padding: 1.25rem 0rem;"> INFORMATIN</h3>
+            <ul>
+                <li> <a href="index.html">Home</a></li>
+                <li> <a href="about-us.html">About</a></li>
+                <li> <a href="services.html">Services</a></li>
+                <li> <a href="experience.html">Experience</a></li>
+                <li> <a href="contact.html">Contact</a></li>
+            </ul>
+            </div>
+        </div>
+        <script>
+            function menuToggle(){
+                const toggleMenu = document.querySelector('.menu');
+ toggleMenu.classList.toggle('active')
+            }
+        </script>
+        <nav class="navbar">
+<a href="index.html" >Home</a>
+<a href="about-us.html">About</a>
+<a href="services.html">Services</a>
+<a href="experience.html">Experience</a>
+<a href="contact.html"class="active">Contact</a>
+
+        </nav>
+    </header>
+    <h1>Contact</h1>
+    <div class="main"> 
+        <i style="font-size:1.5rem" class="fa">&#xf0e0;</i>         <h5> abdullahshabbir1890@gmail.com</h5></div>
+        <div class="main">   
+        <i style="font-size:1.5rem " class="fa">&#xf095;</i><h5>03058964918</h5></div>
+        <div class="main"> 
+          <i style="font-size:1.5rem" class="fa">&#xf041;</i><h5>34D, Cannal Park Rahim Yar Khan</h5>
+    
+           </div>
+</body>
+</html>
