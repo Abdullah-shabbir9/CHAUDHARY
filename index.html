@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cv.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+    *{
+    margin: 0rem;
+padding: 0rem;
+box-sizing: border-box;
+font-family: 'poppines', sans-serif;
+}
+
+.action{
+    position: fixed;
+    top: .625rem;
+ left: 18.75rem;
+}
+.action .profile{
+    position: relative;
+    width: 3.125rem;
+    height: 3.125rem;
+   
+    overflow: hidden;
+    cursor: pointer;
+}
+.action .profile img{
+    position: absolute;
+    top: -10;
+    left: 25;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.action .menu{
+    position: absolute;
+    top: 7.5rem;
+    right: -0;
+    padding:  .625rem 1.25rem;
+    background: #ededed;
+    width: 9.375rem;
+    box-sizing: 0 .3125rem 1.5625rem rgba(0,0,0,1);
+    border-radius: .9375rem;
+    transition: 0.5s;  
+    visibility: hidden;
+    opacity: 0;
+}
+.action .menu.active{
+    visibility: visible;
+    opacity: 1;
+    top: 5rem;
+}
+.action .menu::before{
+    content: "";
+    position: absolute;
+    top: -0.3125rem;
+    right: 1.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    background: #ededed;
+    transform: rotate(45deg);
+}
+.action .menu ul li{
+    list-style: none;
+    padding: .625rem 0;
+    border-top: .0625rem solid black ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.action .menu  li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: 0.5s;
+}
+.action .menu ul li:hover a{
+    color: #00abf0;
+}
+body{
+   
+    color: #081b29;
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.25rem 10%;
+    background-color:transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    
+}
+.logo{
+    font-size: 1.125rem;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+.logo::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay:.4s ;
+}
+.navbar a{
+    font-size: 1.125rem;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.1875rem;
+transition: .3s;
+}
+.navbar a:hover,
+.navbar a.active {
+    color: #00abf0;
+}
+.home{
+   background: url(abdullah.png) no-repeat;
+   background-size: cover;
+   background-position: center;
+    height: 100vh;
+    display: flex;
+align-items: center;
+padding: 0 10%;
+}
+.home-content{
+  
+    max-width: 31.25rem;
+}
+.home-content h1{
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    position: relative;
+}
+.home-content h1::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay:.4s ;
+}
+.home-content h3{
+    font-size: 2rem;
+    font-weight: 700;
+    color: #00abf0;
+    position: relative;
+}
+.home-content h3::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay:1.3s ;
+}
+.home-content p{
+    font-size: 1rem;
+    margin: 1.25rem 0 1.875rem;
+    position: relative;
+}
+.home-content p::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay:1.6s ;
+}
+.home-content .btn-box{
+    display: flex;
+    justify-content: space-between;
+position: relative;
+    width: 21.5625rem;
+    height: 3.125rem;
+ 
+}
+.home-content .btn-box::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay:1.9s ;
+    z-index: 2;
+}
+.btn-box a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 9.375rem;
+    height: 100%;
+    background: #00abf0;
+    border: .125rem solid #00abf0;
+    border-radius: .5rem;
+    font-size: 1.1875rem;
+    color: #081b29;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: .0625rem;
+    z-index: 1;
+    overflow: hidden;
+    transition: .3s;
+}
+.btn-box  a:hover{
+    color: #00abf0;
+}
+.btn-box a:nth-child(2){
+    background-color: transparent;
+    color: #00abf0;
+}
+
+.btn-box a:nth-child(2):hover{
+    color: #081b29;
+}
+.btn-box a:nth-child(2)::before{
+    background-color: #00abf0;
+}
+
+.btn-box  a::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #081b29;
+    z-index: -1;
+    transition: .3s;
+}
+
+
+.btn-box  a:hover:before{
+    width: 100%;
+}
+
+.home-sci{
+    position: absolute;
+    bottom: 1.25rem;
+    width: 10.625rem;
+
+    display: flex;
+    justify-content: space-between;
+}
+.home-sci::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay:2.5s ;
+    z-index: 2;
+}
+.home-sci a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;background: transparent;
+    border: .125rem solid #00abf0;
+    flex-direction: none;
+    border-radius: 50%;
+font-size: 1.25rem;
+color: #00abf0;
+z-index: 1;
+overflow: hidden;
+transition: .3s;
+}
+.home-sci a:hover{
+    color: #081b29;
+}
+
+.home-sci a::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #00abf0;
+    z-index: -1;
+transition: .3s;
+}
+.home-sci a:hover:before{
+    width: 100%;
+}
+
+.home-imghover{
+    position: absolute;
+    top: 0;
+    right: 1.875rem;
+    height: 100%;
+    width: 31.25rem;
+    background: transparent;
+transition: 3s;
+animation: manipactivehover .1s forwards;
+animation-delay: 4s;
+pointer-events: none;
+
+}
+.home-imghover::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120%;
+    height: 100%;
+    background: #081b29;
+    animation: showRight 1s ease forwards;
+    animation-delay:3s ;
+    z-index: 100;
+}
+.home-imghover:hover{
+    background: #081b29;
+    opacity: .6;
+}
+
+
+@keyframes showRight {
+    100%{
+        width: 0;
+    }
+}
+@keyframes manipactivehover{
+    100%{
+        pointer-events: auto;
+    }
+}
+@media (min-width:37.5rem){
+    .action{
+        display: none;
+    }
+   
+}
+@media (max-width:37.5rem){
+    .navbar{
+        display: none;
+    }
+}
+</style>
+<body>
+    <header class="header">
+        <a href="#"class="logo">Job CV</a>
+       
+        <div class="action"> 
+            <div class="profile" onclick="menuToggle();">
+              
+                <img src="abdulla.jpg" style="width: 3.125rem; border-radius: 1.875rem; border: .3125rem solid #00abf0; 
+                    ">
+            </div>
+            <div class="menu">
+                <h3 style=" width: 100%; color: #081b29; padding: 1.25rem 0rem;"> INFORMATIN</h3>
+            <ul>
+                <li> <a href="index.html">Home</a></li>
+                <li> <a href="about-us.html">About</a></li>
+                <li> <a href="services.html">Services</a></li>
+                <li> <a href="experience.html">Experience</a></li>
+                <li> <a href="contact.html">Contact</a></li>
+            </ul>
+            </div>
+        </div>
+        <script>
+            function menuToggle(){
+                const toggleMenu = document.querySelector('.menu');
+ toggleMenu.classList.toggle('active')
+            }
+        </script>
+        <nav class="navbar">
+<a href="index.html" class="active">Home</a>
+<a href="about-us.html">About</a>
+<a href="services.html">Services</a>
+<a href="experience.html">Experience</a>
+<a href="contact.html">Contact</a>
+
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-content">
+            <h1 style="color: #ededed;">
+                Hi, I'm Abdullah shabbir</h1>
+                <h3>Student</h3>
+                <p style="color: #ededed;">Looking for a job opportunity to polish my skills with the guidance of professionals and better learns the way of working to enhance my abilities .</p>
+                <div class="btn-box">
+                    <a href="mailto:abdullahshabbir1890@gmail.com ">Hire Me</a>
+                       <a href="https://m.me/chaudhary.abdullah.75436531">Let's Talk</a>
+                </div>
+                <div class="home-sci">
+ <a href="https://www.facebook.com/chaudhary.abdullah.75436531?mibextid=ZbWKwL"><i class='bx bxl-facebook'></i></a>
+<a href="https://instagram.com/ig.chaudharyy?igshid=MzNlNGNkZWQ4Mg=="><i class='bx bxl-instagram'></i></a>
+<a href="https://www.linkedin.com/in/abdullah-shabbir-48a25b260"><i class='bx bxl-linkedin' ></i></a>
+
+                </div>
+        </div>
+        <span class="home-imghover"></span>
+    </section>
+</body>
+</html>
